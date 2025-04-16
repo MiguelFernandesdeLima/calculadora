@@ -1,0 +1,146 @@
+:root {
+    --bg-color: #f8f9fa;
+    --display-color: #ffffff;
+    --button-color: #ffffff;
+    --button-hover: #f1f3f5;
+    --operation-color: #e9ecef;
+    --operation-hover: #dee2e6;
+    --equals-color: #4cc9f0;
+    --equals-hover: #4895ef;
+    --text-color: #212529;
+    --secondary-text: #6c757d;
+    --border-color: #e9ecef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+  }
+
+  #toggle-dark-mode {
+    padding: 8px 16px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+.calculator-container {
+    width: 100%;
+    max-width: 320px;
+}
+
+.calculator-container h1 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.calculator {
+    background-color: var(--display-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.display {
+    padding: 1.5rem 1rem;
+    text-align: right;
+    background-color: var(--display-color);
+}
+
+.previous-operand {
+    color: var(--secondary-text);
+    font-size: 0.875rem;
+    height: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.current-operand {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background-color: var(--border-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.buttons button {
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    transition: all 0.1s ease;
+}
+
+.buttons button:hover {
+    background-color: var(--button-hover);
+}
+
+.buttons button:active {
+    background-color: var(--operation-hover);
+}
+
+.buttons button[data-action="operation"] {
+    background-color: var(--operation-color);
+    font-weight: 500;
+}
+
+.buttons button[data-action="operation"]:hover {
+    background-color: var(--operation-hover);
+}
+
+.buttons button[data-action="clear"] {
+    font-weight: 500;
+}
+
+.buttons button[data-action="calculate"] {
+    background-color: var(--equals-color);
+    color: white;
+    font-weight: 500;
+}
+
+.buttons button[data-action="calculate"]:hover {
+    background-color: var(--equals-hover);
+}
+
+.buttons button[data-action="delete"] {
+    color: var(--secondary-text);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+/* Efeito mais suave para mobile */
+@media (max-width: 480px) {
+    .buttons button {
+        padding: 1.25rem 0.5rem;
+    }
+}
